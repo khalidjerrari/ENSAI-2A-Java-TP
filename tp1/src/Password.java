@@ -71,6 +71,15 @@ public class Password {
         boolean containDigit = false;
         boolean containSpace = false;
 
+        for (int i=0; i < password.length(); i++) {
+            char c = password.charAt(i);
+            if (Character.isUpperCase(c))
+                containUpper = true;
+            if (Character.isLowerCase(c))
+                containLower = true;
+        }
+        return isNotEnought && containLower && containUpper && containDigit && !containSpace;
+
 
         if (!isNotEnought) {
             System.out.println("mot de passe doit contenir 12");
@@ -95,9 +104,13 @@ public class Password {
      */
     public static HashMap<String, Boolean> checkPasswordsList(ArrayList<String> passwords) {
 
-        // Code here
+        HashMap<String, Boolean> result = new HashMap<>();
 
-        return null;
+        for (String password : passwords) {
+            result.put(password, isStrongPassword(password));
+        }
+
+        return result;
     }
 
     /**
