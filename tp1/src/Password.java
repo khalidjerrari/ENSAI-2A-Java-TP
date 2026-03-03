@@ -65,10 +65,25 @@ public class Password {
      */
     public static boolean isStrongPassword(String password) {
 
-        // Code here
+        boolean isNotEnought = password.length() >=12;
+        boolean containLower = false;
+        boolean containUpper = false;
+        boolean containDigit = false;
+        boolean containSpace = false;
 
-        return false;
-    }
+
+        if (!isNotEnought) {
+            System.out.println("mot de passe doit contenir 12");
+        } else if (!containLower) {
+            System.out.println("au moin une minuscule");
+        } else if (!containDigit){
+            System.out.println("au moins un chiffre");
+        } else if (!containSpace){
+            System.out.print("ne doit pas contenir un  espace");
+
+        } else {
+            System.out.print("pas de sushi")
+        }
 
     /**
      * Checks the strength of multiple passwords and stores the results in a
